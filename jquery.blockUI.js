@@ -417,8 +417,12 @@
 				var cb2 = msg ? cb : noOp;
 				if (opts.showOverlay)
 					lyr2._fadeIn(opts.fadeIn, cb1);
-				if (msg)
-					lyr3._fadeIn(opts.fadeIn, cb2);
+				if (msg){
+					if(opts.effect){
+						lyr3.show(opts.effect.name, opts.effect.option , opts.fadeIn, cb2);
+					} else
+						lyr3._fadeIn(opts.fadeIn, cb2);
+				}
 			}
 			else {
 				if (opts.showOverlay)
